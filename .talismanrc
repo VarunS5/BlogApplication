@@ -1,0 +1,4 @@
+fileignoreconfig:
+- filename: .idea/misc.xml
+  checksum: c5e5557b2fc80182f89ac8ae0e245327dc5d8f2a634c06651f33e1726237afcf
+version: ""

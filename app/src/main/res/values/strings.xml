@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Blog Application</string>
+    <string name="username">UserName</string>
+    <string name="blog_title">Blog Title</string>
+    <string name="date">Date</string>
+    <string name="created_at">Created On:</string>
 </resources>
