@@ -1,9 +1,10 @@
 package com.example.blogapplication
 
+import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -21,9 +22,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var layoutManager: RecyclerView.LayoutManager
     private lateinit var recyclerView: RecyclerView
     private lateinit var blogAdapter: BlogAdapter
-    private lateinit var blogService: BlogService
     private lateinit var blogViewModel: BlogListViewModel
     private lateinit var blogListRepository: BlogListRepository
+    private lateinit var likesCount : TextView
+    private lateinit var commentsCount : TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -55,6 +58,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupViewModel() {
+        val openDialog = Dialog(this)
+        openDialog.setContentView(R.layout.blog_list_item)
         blogListRepository = BlogListRepository(BlogService())
         blogViewModel = ViewModelProvider(
             this,
@@ -63,7 +68,9 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-class ViewModelFactory(val blogListRepository: BlogListRepository) : ViewModelProvider.Factory {
+class ViewModelFactory(
+    val blogListRepository: BlogListRepository
+) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return BlogListViewModel(blogListRepository) as T
     }

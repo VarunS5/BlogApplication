@@ -15,6 +15,8 @@ class BlogAdapter(private val context:MainActivity,private var blogList:ArrayLis
         val userName = view.findViewById<TextView>(R.id.user_name)
         val blogTitle = view.findViewById<TextView>(R.id.blog_title)
         val publishedDate = view.findViewById<TextView>(R.id.published_date)
+        val likesCount = view.findViewById<TextView>(R.id.like_count)
+        val commentsCount = view.findViewById<TextView>(R.id.comment_count)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -26,6 +28,8 @@ class BlogAdapter(private val context:MainActivity,private var blogList:ArrayLis
         holder.userName.text = blog.author.username
         holder.blogTitle.text = blog.title
         holder.publishedDate.text = blog.published_date
+        holder.likesCount.text = blog.likes.size.toString()
+        holder.commentsCount.text = blog.comments.size.toString()
     }
 
     override fun getItemCount(): Int {
