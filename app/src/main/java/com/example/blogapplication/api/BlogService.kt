@@ -8,30 +8,30 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class BlogService {
-    var remoteBlogs : ArrayList<Blog> = ArrayList<Blog>()
+    var remoteBlogs: ArrayList<Blog> = ArrayList<Blog>()
     lateinit var blogListObserver: BlogListObserver
 
-    fun getRemoteBlogs() : List<Blog> {
-        var blogs : Call<ArrayList<Blog>> = Api.Companion.create().getBlogs()
+    fun getRemoteBlogs(): List<Blog> {
+        var blogs: Call<ArrayList<Blog>> = Api.Companion.create().getBlogs()
 
-        blogs.enqueue(object :Callback<ArrayList<Blog>>{
+        blogs.enqueue(object : Callback<ArrayList<Blog>> {
             override fun onResponse(
                 call: Call<ArrayList<Blog>>,
                 response: Response<ArrayList<Blog>>
             ) {
                 remoteBlogs = response.body()!!
-                blogListObserver.onBlogListUpdate(remoteBlogs as ArrayList<Blog>)
+                blogListObserver.onBlogListUpdate(remoteBlogs)
             }
 
             override fun onFailure(call: Call<ArrayList<Blog>>, t: Throwable) {
-                Log.e("List","Update Failure")
+                Log.e("List", t.localizedMessage)
             }
 
         })
         return remoteBlogs
     }
 
-    fun setBlogObserver(blogListObserver: BlogListObserver){
+    fun setBlogObserver(blogListObserver: BlogListObserver) {
         this.blogListObserver = blogListObserver
     }
 }

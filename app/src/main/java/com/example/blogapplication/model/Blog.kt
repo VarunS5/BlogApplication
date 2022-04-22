@@ -1,5 +1,9 @@
 package com.example.blogapplication.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Blog(
     var title: String,
     var content: String,
@@ -9,12 +13,16 @@ data class Blog(
     var tags: ArrayList<Tags>,
     var likes: ArrayList<Likes>,
     var featured_image_url: String?
-)
+) : Parcelable
 
-data class Likes(var name: String, var email: String)
+@Parcelize
+data class Likes(var name: String, var email: String) : Parcelable
 
-data class Tags(var name: String, var created_at: String)
+@Parcelize
+data class Tags(var name: String, var created_at: String) : Parcelable
 
-data class Comments(var text: String, var created_at: String)
+@Parcelize
+data class Comments(var text: String, var created_at: String) : Parcelable
 
-data class Author(var name: String, var username: String, var email: String)
+@Parcelize
+data class Author(var name: String, var username: String, var email: String) : Parcelable

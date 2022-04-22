@@ -10,7 +10,7 @@ interface Api {
     @GET("Sample.json")
     fun getBlogs(): Call<ArrayList<Blog>>
 
-    companion object{
+    companion object {
         val BASE_URL = "https://raw.githubusercontent.com/Ysunil016/Public/main/"
 
         fun create(): Api {

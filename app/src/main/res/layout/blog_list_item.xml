@@ -1,92 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="15sp"
+    app:cardCornerRadius="15sp"
+    app:cardElevation="0dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15sp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="15sp">
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/user_name"
-            android:text="@string/username"
-            android:textSize="25sp"
-            android:fontFamily="sans-serif-black"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/blog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
             android:text="@string/blog_title"
-            android:textSize="20sp"
-            android:paddingBottom="10sp"
-            android:fontFamily="sans-serif-black"/>
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="@string/username"
+            android:textSize="20sp" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:id="@+id/like_layout"
-                android:gravity="center">
-            <ImageView
-                android:layout_width="35sp"
-                android:layout_height="35sp"
-                android:src="@drawable/like_shape_2"/>
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/like_count"
-                android:paddingLeft="5sp"
-                android:fontFamily="sans-serif-black"
-                android:textSize="20sp"
-                android:text="0"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="20sp"
                 android:gravity="center"
-                android:id="@+id/comment_layout">
+                android:orientation="horizontal">
+
                 <ImageView
-                    android:layout_width="35sp"
-                    android:layout_height="35sp"
-                    android:src="@drawable/chat_shape"/>
+                    android:layout_width="20sp"
+                    android:layout_height="20sp"
+                    android:src="@drawable/heart" />
+
                 <TextView
+                    android:id="@+id/like_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/comment_count"
-                    android:text="0"
-                    android:textSize="20sp"
+                    android:fontFamily="sans-serif-black"
                     android:paddingLeft="5sp"
-                    android:fontFamily="sans-serif-black"/>
+                    android:text="@string/initial_value"
+                    android:textSize="20sp" />
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/comment_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="20sp">
+
+                <ImageView
+                    android:layout_width="20sp"
+                    android:layout_height="20sp"
+                    android:src="@drawable/comment_alt" />
+
+                <TextView
+                    android:id="@+id/comment_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:paddingLeft="5sp"
+                    android:text="0"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="sans-serif-condensed-light"
+                android:paddingLeft="15sp"
                 android:text="@string/created_at"
-                android:textSize="15sp"
-                android:paddingLeft="5sp"
-                android:layout_weight="1"
-                android:fontFamily="sans-serif-black"/>
+                android:textSize="15sp" />
+
             <TextView
+                android:id="@+id/published_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="cursive"
                 android:text="@string/date"
-                android:id="@+id/published_date"
-                android:textSize="15sp"
-                android:layout_weight="5"
-                android:fontFamily="sans-serif"/>
+                android:textSize="15sp" />
 
         </LinearLayout>
-
 
 
     </LinearLayout>

@@ -3,5 +3,12 @@
     <string name="username">UserName</string>
     <string name="blog_title">Blog Title</string>
     <string name="date">Date</string>
-    <string name="created_at">Created On:</string>
+    <string name="created_at">Published On:</string>
+    <string name="name">Owner Name:</string>
+    <string name="sample_name">Sample name</string>
+    <string name="user_name">User Name:</string>
+    <string name="title_name">Title Name:</string>
+    <string name="content">Content:</string>
+    <string name="initial_value">0</string>
+    <string name="tags">Tags:</string>
 </resources>

@@ -4,14 +4,14 @@ import com.example.blogapplication.api.BlogService
 import com.example.blogapplication.model.Blog
 import com.example.blogapplication.util.BlogListObserver
 
-class BlogListRepository(private val blogService: BlogService):BlogListObserver {
-    var blogListObserver : BlogListObserver? = null
+class BlogListRepository(private val blogService: BlogService) : BlogListObserver {
+    var blogListObserver: BlogListObserver? = null
 
-    init{
+    init {
         blogService.setBlogObserver(this)
     }
 
-    fun getBlogs():List<Blog>{
+    fun getBlogs(): List<Blog> {
         return blogService.getRemoteBlogs()
     }
 

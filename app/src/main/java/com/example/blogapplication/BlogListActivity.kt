@@ -4,8 +4,8 @@ import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.TextView
-import androidx.lifecycle.Observer
+import android.view.View
+import android.widget.LinearLayout
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,19 +17,19 @@ import com.example.blogapplication.repository.BlogListRepository
 import com.example.blogapplication.util.Status
 import com.example.blogapplication.viewmodel.BlogListViewModel
 
-class MainActivity : AppCompatActivity() {
+class BlogListActivity : AppCompatActivity() {
 
     private lateinit var layoutManager: RecyclerView.LayoutManager
     private lateinit var recyclerView: RecyclerView
     private lateinit var blogAdapter: BlogAdapter
     private lateinit var blogViewModel: BlogListViewModel
     private lateinit var blogListRepository: BlogListRepository
-    private lateinit var likesCount : TextView
-    private lateinit var commentsCount : TextView
+    private lateinit var loadingLayout: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_blog_list)
+        loadingLayout = findViewById(R.id.loading_panel)
         setupViewModel()
         setupObserver()
         recyclerView = findViewById(R.id.blog_list)
@@ -41,16 +41,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupObserver() {
-        blogViewModel.getBlogs().observe(this, Observer {
+        blogViewModel.getBlogs().observe(this) {
             when (it.status) {
                 Status.SUCCESS -> {
+                    loadingLayout.visibility = View.GONE
+                    recyclerView.visibility = View.VISIBLE
                     it.data?.let { blogs -> updateList(blogs) }
                 }
                 Status.LOADING -> {
                     Log.i("data", "Loading...")
                 }
+                else -> {
+                    Log.e("error", "${it.message}")
+                }
             }
-        })
+        }
     }
 
     private fun updateList(blogs: List<Blog>) {
@@ -68,8 +73,9 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
+@Suppress("UNCHECKED_CAST")
 class ViewModelFactory(
-    val blogListRepository: BlogListRepository
+    private val blogListRepository: BlogListRepository
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return BlogListViewModel(blogListRepository) as T

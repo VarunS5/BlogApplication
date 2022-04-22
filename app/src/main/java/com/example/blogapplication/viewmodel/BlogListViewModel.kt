@@ -35,8 +35,8 @@ class BlogListViewModel(
     }
 
     override fun onBlogListUpdate(blogList: ArrayList<Blog>) {
-        for(blog in blogList){
-            blog.published_date = blog.published_date.substring(0,10)
+        for (blog in blogList) {
+            blog.published_date = blog.published_date.substring(0, 10)
         }
         blogs.postValue(Resource.success(blogList))
     }
