@@ -6,3 +6,9 @@ fileignoreconfig:
 - filename: .idea/misc.xml
   checksum: cd25e9d4062cbabb8aa2ab7ee57ad1210e7bf19df918be09bc7b27c5a082fa66
 version: ""
+fileignoreconfig:
+- filename: app/src/main/res/values/font_certs.xml
+  checksum: d582d9915297fe4ec221cdce1217035781c0bfdcec436c7aca9b516744f6e7af
+- filename: .idea/misc.xml
+  checksum: e349a5329120e3b5b77516f7d72a07de694aa4dd29c1a3018065c31e97ce5101
+version: ""

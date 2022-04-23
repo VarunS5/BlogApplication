@@ -33,7 +33,7 @@ class BlogAdapter(private val context: BlogListActivity, private var blogList: A
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var blog = this.blogList.get(position)
-        holder.userName.text = blog.author.username
+        holder.userName.text = blog.author.name
         holder.blogTitle.text = blog.title
         holder.publishedDate.text = blog.published_date
         holder.likesCount.text = blog.likes.size.toString()
