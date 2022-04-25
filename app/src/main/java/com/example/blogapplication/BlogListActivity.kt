@@ -21,7 +21,6 @@ import com.example.blogapplication.repository.BlogListRepository
 import com.example.blogapplication.util.Status
 import com.example.blogapplication.viewmodel.BlogListViewModel
 import kotlinx.coroutines.*
-import kotlin.coroutines.CoroutineContext
 
 class BlogListActivity : AppCompatActivity() {
 
