@@ -34,12 +34,11 @@ class BlogDetailActivity : AppCompatActivity() {
                 "*{margin-left:0px;margin-bottom:2px;margin-right:0px;padding:0px 5px;padding-left:7px;}"+
                 "a{color:white;}"+
                 "a:visited{color:gold;}"+
-                "p{font-size:15px;margin-left:2px;}"+
-                "h4{font-size:30px;}"+
-                "h3{font-size:35px;margin-bottom:0px;padding-bottom:0px;}"+
+                "p{font-size:18px;margin-left:2px;}"+
+                "h4{font-size:25px;}"+
+                "h3{font-size:28px;margin-bottom:0px;padding-bottom:0px;}"+
                 "body{width:95%;color:white;text-align:left;background-image:linear-gradient(to bottom right,rgba(57, 62, 70, 1),rgba(26, 32, 44, 0.3));}" +
-                "img{width:100%;aspect-ratio:16/9;self-align:center;}" +
-                "figure{padding:4px;}"+
+                "img{width:100%;aspect-ratio:4/3;}" +
                 "</style>" +
                 "</head>" +
                 "<body>" + blog?.content!! +

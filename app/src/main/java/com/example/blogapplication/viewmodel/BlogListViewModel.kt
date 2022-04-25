@@ -51,6 +51,7 @@ class BlogListViewModel(
         return when {
             currentHour.toDouble() >= 15 -> "Good Evening"
             currentHour.toDouble() >= 12 -> "Good Afternoon"
+            currentHour.toDouble() >= 0 && currentHour.toDouble() <12 -> "Good Morning"
             else -> "Good Morning"
         }
 
