@@ -11,7 +11,7 @@ interface Api {
     fun getBlogs(): Call<ArrayList<Blog>>
 
     companion object {
-        val BASE_URL = "https://raw.githubusercontent.com/Ysunil016/Public/main/"
+        private const val BASE_URL = "https://raw.githubusercontent.com/Ysunil016/Public/main/"
 
         fun create(): Api {
             val retrofit = Retrofit.Builder()

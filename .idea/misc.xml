@@ -8,10 +8,12 @@
         <entry key="app/src/main/res/drawable/glossy_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/glossy_background_new.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/gradient_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/tag_background.xml" value="0.131" />
         <entry key="app/src/main/res/layout/activity_blog_detail.xml" value="0.14175724637681159" />
         <entry key="app/src/main/res/layout/activity_blog_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1203125" />
         <entry key="app/src/main/res/layout/blog_list_item.xml" value="0.13385826771653545" />
+        <entry key="app/src/main/res/layout/tag_list_item.xml" value="0.1203125" />
       </map>
     </option>
   </component>

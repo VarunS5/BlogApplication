@@ -14,6 +14,7 @@
         <activity
             android:name=".BlogDetailActivity"
             android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:screenOrientation="sensor"/>
         <activity
             android:name=".BlogListActivity"

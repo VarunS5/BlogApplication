@@ -12,7 +12,7 @@ class BlogService {
     lateinit var blogListObserver: BlogListObserver
 
     fun getRemoteBlogs(): List<Blog> {
-        var blogs: Call<ArrayList<Blog>> = Api.Companion.create().getBlogs()
+        val blogs: Call<ArrayList<Blog>> = Api.Companion.create().getBlogs()
 
         blogs.enqueue(object : Callback<ArrayList<Blog>> {
             override fun onResponse(
@@ -24,7 +24,7 @@ class BlogService {
             }
 
             override fun onFailure(call: Call<ArrayList<Blog>>, t: Throwable) {
-                Log.e("List", t.localizedMessage)
+                Log.e("List", "error loading")
             }
 
         })

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -30,11 +31,12 @@ class BlogListActivity : AppCompatActivity() {
     private lateinit var blogViewModel: BlogListViewModel
     private lateinit var blogListRepository: BlogListRepository
     private lateinit var loadingLayout: LinearLayout
-    private lateinit var greetLayout : LinearLayout
-    private lateinit var welcomeLayout : LinearLayout
-    private lateinit var cardLayout : CardView
-    private lateinit var companyLogo : ImageView
-    val scope = CoroutineScope(Dispatchers.Main)
+    private lateinit var greetLayout: LinearLayout
+    private lateinit var welcomeLayout: LinearLayout
+    private lateinit var cardLayout: CardView
+    private lateinit var companyLogo: ImageView
+    private lateinit var greetMessage: TextView
+    private val scope = CoroutineScope(Dispatchers.Main)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,8 +46,9 @@ class BlogListActivity : AppCompatActivity() {
         welcomeLayout = findViewById(R.id.welcome_layout)
         cardLayout = findViewById(R.id.card_list)
         companyLogo = findViewById(R.id.thoughtworks_logo)
-        val fadeInAnimation = AnimationUtils.loadAnimation(this,R.anim.fade_in)
-        val fadeOutAnimation = AnimationUtils.loadAnimation(this,R.anim.fade_out)
+        greetMessage = findViewById(R.id.greet)
+        val fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in)
+        val fadeOutAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_out)
         scope.launch {
             companyLogo.startAnimation(fadeInAnimation)
             delay(3000)
@@ -53,9 +56,8 @@ class BlogListActivity : AppCompatActivity() {
             delay(3000)
             companyLogo.visibility = View.GONE
             welcomeLayout.visibility = View.GONE
+            greetLayout.visibility = View.VISIBLE
         }
-        greetLayout.visibility = View.VISIBLE
-        loadingLayout.visibility = View.VISIBLE
         setupViewModel()
         setupObserver()
         recyclerView = findViewById(R.id.blog_list)
@@ -63,6 +65,7 @@ class BlogListActivity : AppCompatActivity() {
         blogAdapter = BlogAdapter(this, ArrayList())
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = blogAdapter
+        greetMessage.text = blogViewModel.getGreetMessage()
 
     }
 
@@ -71,6 +74,7 @@ class BlogListActivity : AppCompatActivity() {
             when (it.status) {
                 Status.SUCCESS -> {
                     scope.launch {
+                        delay(5000)
                         loadingLayout.visibility = View.GONE
                         recyclerView.visibility = View.VISIBLE
                         cardLayout.visibility = View.VISIBLE
@@ -78,7 +82,7 @@ class BlogListActivity : AppCompatActivity() {
                     it.data?.let { blogs -> updateList(blogs) }
                 }
                 Status.LOADING -> {
-                    Log.i("data", "Loading...")
+                    loadingLayout.visibility = View.VISIBLE
                 }
                 else -> {
                     Log.e("error", "${it.message}")
