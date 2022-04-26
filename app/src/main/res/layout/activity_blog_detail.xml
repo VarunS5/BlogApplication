@@ -112,7 +112,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="-25sp"
         app:cardBackgroundColor="#00ffffff"
-        app:cardCornerRadius="25sp">
+        app:cardCornerRadius="25sp"
+        app:cardElevation="0dp">
 
         <WebView
             android:id="@+id/content_detail"

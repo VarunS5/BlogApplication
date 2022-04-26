@@ -76,5 +76,6 @@ class BlogDetailActivity : AppCompatActivity() {
             "text/html",
             "base64"
         )
+        content.setBackgroundColor(0)
     }
 }

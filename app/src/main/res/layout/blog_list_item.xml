@@ -61,28 +61,6 @@
                     android:textSize="20sp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/comment_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingLeft="20sp">
-
-                <ImageView
-                    android:layout_width="20sp"
-                    android:layout_height="20sp"
-                    android:src="@drawable/comment_alt" />
-
-                <TextView
-                    android:id="@+id/comment_count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
-                    android:paddingLeft="5sp"
-                    android:text="0"
-                    android:textSize="20sp" />
-            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"

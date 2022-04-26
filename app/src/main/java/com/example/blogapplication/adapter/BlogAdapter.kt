@@ -19,7 +19,6 @@ class BlogAdapter(private val context: BlogListActivity, private var blogList: A
         val blogTitle: TextView = view.findViewById(R.id.blog_title)
         val publishedDate: TextView = view.findViewById(R.id.published_date)
         val likesCount: TextView = view.findViewById(R.id.like_count)
-        val commentsCount: TextView = view.findViewById(R.id.comment_count)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,7 +33,6 @@ class BlogAdapter(private val context: BlogListActivity, private var blogList: A
         holder.blogTitle.text = blog.title
         holder.publishedDate.text = blog.published_date
         holder.likesCount.text = blog.likes.size.toString()
-        holder.commentsCount.text = blog.comments.size.toString()
         holder.itemView.setOnClickListener {
             val intent = Intent(context, BlogDetailActivity::class.java)
             intent.putExtra("blog", blog)
