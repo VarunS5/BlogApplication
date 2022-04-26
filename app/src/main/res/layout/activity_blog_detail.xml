@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -41,13 +40,72 @@
             android:padding="15sp"
             android:text="@string/sample_name"
             android:textSize="20sp" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/tags_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/comment_layout_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:orientation="horizontal"
+            android:padding="5sp">
+
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/comment_alt" />
+
+            <TextView
+                android:id="@+id/comment_count_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/roboto_black"
+                android:paddingLeft="5sp"
+                android:paddingBottom="2sp"
+                android:text="@string/_0"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/like_layout_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10sp"
+            android:orientation="horizontal"
+            android:padding="5sp">
+
+            <ImageView
+                android:layout_width="21sp"
+                android:layout_height="21sp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/heart" />
+
+            <TextView
+                android:id="@+id/like_count_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/roboto_black"
+                android:paddingLeft="5sp"
+                android:paddingBottom="2sp"
+                android:text="@string/_0"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tags_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -60,7 +118,6 @@
             android:id="@+id/content_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="25sp"
             tools:ignore="WebViewLayout" />
 
     </androidx.cardview.widget.CardView>

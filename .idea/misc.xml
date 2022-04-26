@@ -13,6 +13,10 @@
         <entry key="app/src/main/res/layout/activity_blog_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1203125" />
         <entry key="app/src/main/res/layout/blog_list_item.xml" value="0.13385826771653545" />
+        <entry key="app/src/main/res/layout/comment_list_item.xml" value="0.14175724637681159" />
+        <entry key="app/src/main/res/layout/comments_dialog.xml" value="0.1203125" />
+        <entry key="app/src/main/res/layout/like_list_item.xml" value="0.14175724637681159" />
+        <entry key="app/src/main/res/layout/likes_dialog.xml" value="0.14175724637681159" />
         <entry key="app/src/main/res/layout/tag_list_item.xml" value="0.1203125" />
       </map>
     </option>
