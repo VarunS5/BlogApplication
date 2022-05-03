@@ -8,8 +8,6 @@ import com.example.blogapplication.model.Blog
 import com.example.blogapplication.repository.BlogListRepository
 import com.example.blogapplication.util.BlogListObserver
 import com.example.blogapplication.util.Resource
-import java.text.SimpleDateFormat
-import java.util.*
 import kotlin.collections.ArrayList
 
 class BlogListViewModel(
@@ -33,10 +31,6 @@ class BlogListViewModel(
         return blogs
     }
 
-    override fun onCleared() {
-        super.onCleared()
-    }
-
     override fun onBlogListUpdate(blogList: ArrayList<Blog>) {
         for (blog in blogList) {
             blog.published_date = blog.published_date.substring(0, 10)
@@ -45,13 +39,11 @@ class BlogListViewModel(
     }
 
     @SuppressLint("SimpleDateFormat")
-    fun getGreetMessage(): String {
-        val hourFormat = SimpleDateFormat("HH")
-        val currentHour = hourFormat.format(Date())
+    fun getGreetMessage(currentHour: Double): String {
         return when {
-            currentHour.toDouble() >= 15 -> "Good Evening"
-            currentHour.toDouble() >= 12 -> "Good Afternoon"
-            currentHour.toDouble() >= 0 && currentHour.toDouble() <12 -> "Good Morning"
+            currentHour >= 15 -> "Good Evening"
+            currentHour >= 12 -> "Good Afternoon"
+            currentHour >= 0 && currentHour < 12 -> "Good Morning"
             else -> "Good Morning"
         }
 

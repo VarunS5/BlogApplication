@@ -21,6 +21,9 @@ import com.example.blogapplication.repository.BlogListRepository
 import com.example.blogapplication.util.Status
 import com.example.blogapplication.viewmodel.BlogListViewModel
 import kotlinx.coroutines.*
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class BlogListActivity : AppCompatActivity() {
 
@@ -64,7 +67,9 @@ class BlogListActivity : AppCompatActivity() {
         blogAdapter = BlogAdapter(this, ArrayList())
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = blogAdapter
-        greetMessage.text = blogViewModel.getGreetMessage()
+        val hourFormat = SimpleDateFormat("HH")
+        val currentHour = hourFormat.format(Date()).toDouble()
+        greetMessage.text = blogViewModel.getGreetMessage(currentHour)
 
     }
 
@@ -95,8 +100,6 @@ class BlogListActivity : AppCompatActivity() {
     }
 
     private fun setupViewModel() {
-        val openDialog = Dialog(this)
-        openDialog.setContentView(R.layout.blog_list_item)
         blogListRepository = BlogListRepository(BlogService())
         blogViewModel = ViewModelProvider(
             this,
